@@ -1,4 +1,4 @@
-#include "rsa.h"
+#include "rsa_encryption.h"
 #include <string.h> // Include the string.h header for strlen function
 
 // Function to perform modular exponentiation (base^exp mod modulus)

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "./algorithms/rsa.h"
+#include "./algorithms/rsa_encryption.h"
 
 long long encrypt_data(double data, long long public_key, long long modulus) {
     char data_str[1024];

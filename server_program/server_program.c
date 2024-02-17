@@ -5,6 +5,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h> 
+#include "./algorithms/rsa_decryption.h" // Include the RSA decryption header
 
 #define PORT 12345
 
@@ -49,10 +50,12 @@ int main() {
     int valread;
     while(1) {
         if ((valread = read(new_socket , buffer, 1024)) > 0) {
-            printf("Received: %s\n",buffer);
-            // Process received data here
+            printf("Received: %s\n", buffer);
+            // Decrypt the received data
+            long long ciphertext = atoll(buffer); // Convert received message to long long
+            long long decrypted_data = rsa_decrypt(ciphertext, 2753, 3233);            
+            printf("Decrypted: %lld\n", decrypted_data);
         }
     }
     return 0;
-
 }

@@ -4,7 +4,7 @@
 #include <string.h>
 #include "data_encryption.h"
 #include "socket_communication.h"
-#include "./algorithms/rsa.h"
+#include "./algorithms/rsa_encryption.h"
 
 
 ///Running the code
