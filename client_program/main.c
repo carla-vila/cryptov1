@@ -9,7 +9,7 @@
 
 ///Running the code
 //gcc main.c data_encryption.c socket_communication.c ./algorithms/rsa_encryption.c -o main_program
-//./main_program <algorithm> <public_key> <modulus>
+//./main_program <algorithm> <public_key> <moduluss>
 
 double collect_humidity_data() {
     //return rand() % 101;
