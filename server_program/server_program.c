@@ -51,8 +51,7 @@ int main() {
     while(1) {
         if ((valread = read(new_socket , buffer, 1024)) > 0) {
             printf("Received: %s\n", buffer);
-            // Decrypt the received data
-            long long ciphertext = atoll(buffer); // Convert received message to long long
+            long long ciphertext = atoll(buffer); 
             long long decrypted_data = rsa_decrypt(ciphertext, 2753, 3233);            
             printf("Decrypted: %lld\n", decrypted_data);
         }

@@ -14,7 +14,6 @@ void send_encrypted_data(long long encrypted_data) {
     struct sockaddr_in serv_addr;
     char message[1024];
 
-    // Convert the encrypted data to a string
     snprintf(message, sizeof(message), "%lld", encrypted_data);
 
     if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
@@ -31,7 +30,6 @@ void send_encrypted_data(long long encrypted_data) {
         exit(EXIT_FAILURE);
     }
 
-    // Send the encrypted data to the server
     send(sock, message, strlen(message), 0);
     printf("Encrypted data sent: %s\n", message);
 

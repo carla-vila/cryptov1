@@ -6,4 +6,4 @@ void send_data(int socket_fd, const char *data);
 void close_connection(int socket_fd);
 void send_encrypted_data(long long encrypted_data);
 
-#endif /* SOCKET_COMMUNICATION_H */
+#endif 
