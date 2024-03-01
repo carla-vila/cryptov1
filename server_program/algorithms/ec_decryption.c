@@ -75,9 +75,9 @@ long long ec_decrypt(long long r) {
     return plaintext;
 }
 
-int main() {
+/* int main() {
     long long encrypted_point = 60129542159; // Example encrypted point
     long long decrypted_data = ec_decrypt(encrypted_point);
     printf("Decrypted plaintext: %lld\n", decrypted_data);
     return 0;
-}
+} */

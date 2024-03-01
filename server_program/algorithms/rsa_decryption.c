@@ -22,9 +22,9 @@ long long rsa_decrypt(long long ciphertext) {
     return mod_exp(ciphertext, SERVER_PRIVATE_KEY_B, SERVER_PRIVATE_KEY_N);
 }
 
-int main() {
+/* int main() {
     long long ciphertext = 855; 
     long long decrypted_text = rsa_decrypt(ciphertext);
     printf("Decrypted plaintext: %lld\n", decrypted_text);
     return 0;
-}
+} */

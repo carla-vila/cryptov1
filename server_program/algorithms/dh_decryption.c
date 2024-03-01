@@ -29,8 +29,8 @@ long long dh_decrypt(long long ciphertext) {
     return decrypted_data;
 }
 
-int main() {
+/* int main() {
     long long ciphertext = 122;
     long long decrypted = dh_decrypt(ciphertext);
     return 0;
-}
+} */
