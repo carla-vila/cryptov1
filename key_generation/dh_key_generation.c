@@ -4,9 +4,8 @@
 #include <string.h>
 #include <arpa/inet.h>
 #include <netinet/in.h>
-#include <time.h> // Include time.h for the time() function
 
-#define PORT 12345
+
 #define P 23
 #define G 5
 

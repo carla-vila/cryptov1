@@ -4,8 +4,8 @@
 
 #define P 23    
 #define G 5     
-#define PRIVATE_KEY_CLIENT 6
-#define PUBLIC_KEY_SERVER 7
+#define PRIVATE_KEY_CLIENT 22
+#define PUBLIC_KEY_SERVER 2
 
 
 long long mod_exp(long long base, long long exp, long long modulus) {
@@ -35,8 +35,7 @@ long long dh_encrypt(long long plaintext) {
 
 
 int main() {
-    long long plaintext = 123456789;
+    long long plaintext = 123;
     long long encrypted = dh_encrypt(plaintext);
-    printf("Encrypted text: %lld\n", encrypted);
     return 0;
 }

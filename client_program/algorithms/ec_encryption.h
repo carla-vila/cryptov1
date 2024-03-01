@@ -3,6 +3,6 @@
 #define EC_ENCRYPTION_H
 
 // Function prototype for elliptic curve encryption
-Point ec_encrypt(long long plaintext);
+long long ec_encrypt(long long plaintext);
 
 #endif /* EC_ENCRYPTION_H */

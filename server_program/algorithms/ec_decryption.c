@@ -5,12 +5,13 @@
 #define B_PARAM 2
 #define P_PARAM 17
 
+#define PRIVATE_KEY 7
+
 typedef struct {
     int x;
     int y;
 } Point;
 
-// Function to calculate modular inverse
 int modInverse(int a, int m) {
     int m0 = m, t, q;
     int x0 = 0, x1 = 1;
@@ -29,7 +30,6 @@ int modInverse(int a, int m) {
     return x1;
 }
 
-// Function to add two points on the elliptic curve
 Point add(Point P, Point Q, int a, int p) {
     Point R;
     int lambda;
@@ -45,7 +45,6 @@ Point add(Point P, Point Q, int a, int p) {
     return R;
 }
 
-// Function to perform scalar multiplication on an elliptic curve
 Point scalarMultiply(Point P, int k, int a, int p) {
     Point Q = P;
     for (int i = 1; i < k; i++) {
@@ -54,11 +53,23 @@ Point scalarMultiply(Point P, int k, int a, int p) {
     return Q;
 }
 
-// Elliptic curve decryption function
 long long ec_decrypt(Point R) {
-    int private_key = 7; // Example private key, replace with the actual private key
-    int inv_private_key = modInverse(private_key, P_PARAM);
+    int inv_private_key = modInverse(17, P_PARAM);
+    // Perform scalar multiplication with the inverse of the private key modulus
     Point plaintext_point = scalarMultiply(R, inv_private_key, A_PARAM, P_PARAM);
     long long plaintext = plaintext_point.x;
     return plaintext;
+}
+
+int main() {
+    // Encrypted point
+    Point encrypted_point = {14, 15};
+
+    // Decrypt the encrypted point
+    long long decrypted_data = ec_decrypt(encrypted_point);
+
+    // Print the decrypted data
+    printf("Decrypted data: %lld\n", decrypted_data);
+
+    return 0;
 }

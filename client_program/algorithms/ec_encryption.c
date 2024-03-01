@@ -18,6 +18,11 @@
 #define N_PARAM 19
 #define PRIVATE_KEY 7
 
+long long point_to_long_long(Point point) {
+    long long encoded_point = ((long long)point.x << 32) | (unsigned int)point.y;
+    return encoded_point;
+}
+
 int modInverse(int a, int m) {
     int m0 = m, t, q;
     int x0 = 0, x1 = 1;
@@ -59,14 +64,17 @@ Point scalarMultiply(Point P, int k, int a, int p) {
     return Q;
 }
 
-Point ec_encrypt(long long plaintext) {
+long long ec_encrypt(long long plaintext) {
     Point G = {G_X_PARAM, G_Y_PARAM};
     Point R = scalarMultiply(G, plaintext + PRIVATE_KEY, A_PARAM, P_PARAM); // Use plaintext plus private key as the scalar
     printf("Encrypted message point R = (%d, %d)\n", R.x, R.y);
-    return R;
+    long long scalar_point = point_to_long_long(R);
+    return scalar_point;
 }
+
 int main() {
     long long plaintext = 10; // Example plaintext
-    Point encrypted_point = ec_encrypt(plaintext);
+    long long encrypted_point = ec_encrypt(plaintext);
+    printf("Encrypted scalar point: %lld\n", encrypted_point);
     return 0;
 }

@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define SERVER_PRIVATE_KEY_B 2753
+#define SERVER_PRIVATE_KEY_N 3233
+
 long long mod_exp(long long base, long long exp, long long modulus) {
     long long result = 1;
     base %= modulus;
@@ -15,6 +18,6 @@ long long mod_exp(long long base, long long exp, long long modulus) {
     return result;
 }
 
-long long rsa_decrypt(long long ciphertext, long long d, long long n) {
-    return mod_exp(ciphertext, d, n);
+long long rsa_decrypt(long long ciphertext) {
+    return mod_exp(ciphertext, SERVER_PRIVATE_KEY_B, SERVER_PRIVATE_KEY_N);
 }

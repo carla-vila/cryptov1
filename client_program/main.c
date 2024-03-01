@@ -20,11 +20,6 @@ double collect_data() {
     return 5;
 }
 
-long long point_to_long_long(Point point) {
-    long long encoded_point = ((long long)point.x << 32) | (unsigned int)point.y;
-    return encoded_point;
-}
-
 int main(int argc, char *argv[]) {
     if (argc != 4) {
         printf("Usage: %s <algorithm>\n", argv[0]);
@@ -42,9 +37,7 @@ int main(int argc, char *argv[]) {
         encrypted_data = dh_encrypt_data(data);
 
     } else if (strcmp(argv[1], "ec") == 0){
-        R = ec_encrypt_data(data);
-        encrypted_data = point_to_long_long(R);
-
+        encrypted_data = ec_encrypt_data(data);
     }else {
         printf("Unsupported encryption algorithm: %s\n", argv[1]);
         return 1;
