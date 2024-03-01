@@ -5,7 +5,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h> 
-#include "./algorithms/rsa_decryption.h" // Include the RSA decryption header
+#include "./algorithms/dh_decryption.h" // Include the RSA decryption header
 
 #define PORT 12345
 

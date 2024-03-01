@@ -8,6 +8,6 @@ typedef struct {
 } Point;
 
 // Function prototype for elliptic curve decryption
-long long ec_decrypt(Point R);
+long long ec_decrypt(long long r);
 
 #endif /* EC_DECRYPTION_H */
