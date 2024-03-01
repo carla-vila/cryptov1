@@ -17,7 +17,7 @@
 
 double collect_data() {
     //return rand() % 101;
-    return 25;
+    return 5;
 }
 
 long long point_to_long_long(Point point) {
@@ -27,19 +27,17 @@ long long point_to_long_long(Point point) {
 
 int main(int argc, char *argv[]) {
     if (argc != 4) {
-        printf("Usage: %s <algorithm> <public_key> <modulus>\n", argv[0]);
+        printf("Usage: %s <algorithm>\n", argv[0]);
         return 1;
     }
     long long algorithm_used = atoll(argv[1]);
-    long long public_key = atoll(argv[2]);
-    long long modulus = atoll(argv[3]);
 
     double data = collect_data();
     long long encrypted_data = 0;
     Point R = {0, 0};
 
     if (strcmp(argv[1], "rsa") == 0) {
-        encrypted_data = rsa_encrypt_data(data, public_key, modulus);
+        encrypted_data = rsa_encrypt_data(data);
     } else if (strcmp(argv[1], "dh") == 0) {
         encrypted_data = dh_encrypt_data(data);
 

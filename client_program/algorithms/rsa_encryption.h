@@ -5,6 +5,6 @@
 #include <string.h> 
 
 long long mod_exp(long long base, long long exp, long long modulus);
-long long rsa_encrypt(long long plaintext, long long e, long long n);
+long long rsa_encrypt(long long plaintext);
 
 #endif 

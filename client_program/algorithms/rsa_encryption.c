@@ -2,9 +2,8 @@
 #include "../data_encryption.h"
 #include "rsa_encryption.h"
 
-
-
-
+#define SERVER_PUBLIC_KEY_E 17
+#define SERVER_PUBLIC_KEY_N 3233
 
 long long mod_expp(long long base, long long exp, long long modulus) {
     long long result = 1;
@@ -19,6 +18,6 @@ long long mod_expp(long long base, long long exp, long long modulus) {
     return result;
 }
 
-long long rsa_encrypt(long long plaintext, long long e, long long n) {
-    return mod_expp(plaintext, e, n);
+long long rsa_encrypt(long long plaintext) {
+    return mod_expp(plaintext, SERVER_PUBLIC_KEY_E, SERVER_PUBLIC_KEY_E);
 }
