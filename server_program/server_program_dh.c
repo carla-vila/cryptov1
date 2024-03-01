@@ -52,7 +52,7 @@ int main() {
         if ((valread = read(new_socket , buffer, 1024)) > 0) {
             printf("Received: %s\n", buffer);
             long long ciphertext = atoll(buffer); 
-            long long decrypted_data = rsa_decrypt(ciphertext, 2753, 3233);            
+            long long decrypted_data = dh_decrypt(ciphertext);            
             printf("Decrypted: %lld\n", decrypted_data);
         }
     }

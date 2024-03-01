@@ -21,3 +21,10 @@ long long mod_exp(long long base, long long exp, long long modulus) {
 long long rsa_decrypt(long long ciphertext) {
     return mod_exp(ciphertext, SERVER_PRIVATE_KEY_B, SERVER_PRIVATE_KEY_N);
 }
+
+int main() {
+    long long ciphertext = 855; 
+    long long decrypted_text = rsa_decrypt(ciphertext);
+    printf("Decrypted plaintext: %lld\n", decrypted_text);
+    return 0;
+}

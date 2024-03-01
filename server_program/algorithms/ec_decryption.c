@@ -12,6 +12,19 @@ typedef struct {
     int y;
 } Point;
 
+
+long long point_to_long_long(Point point) {
+    long long encoded_point = ((long long)point.x << 32) | (unsigned int)point.y;
+    return encoded_point;
+}
+Point long_long_to_point(long long encoded_point) {
+    Point point;
+    point.x = encoded_point >> 32;
+    point.y = encoded_point & 0xFFFFFFFF;
+    return point;
+}
+
+
 int modInverse(int a, int m) {
     int m0 = m, t, q;
     int x0 = 0, x1 = 1;
@@ -53,7 +66,8 @@ Point scalarMultiply(Point P, int k, int a, int p) {
     return Q;
 }
 
-long long ec_decrypt(Point R) {
+long long ec_decrypt(long long r) {
+    Point R = long_long_to_point(r);
     int inv_private_key = modInverse(17, P_PARAM);
     // Perform scalar multiplication with the inverse of the private key modulus
     Point plaintext_point = scalarMultiply(R, inv_private_key, A_PARAM, P_PARAM);
@@ -62,14 +76,8 @@ long long ec_decrypt(Point R) {
 }
 
 int main() {
-    // Encrypted point
-    Point encrypted_point = {14, 15};
-
-    // Decrypt the encrypted point
+    long long encrypted_point = 60129542159; // Example encrypted point
     long long decrypted_data = ec_decrypt(encrypted_point);
-
-    // Print the decrypted data
-    printf("Decrypted data: %lld\n", decrypted_data);
-
+    printf("Decrypted plaintext: %lld\n", decrypted_data);
     return 0;
 }

@@ -3,8 +3,8 @@
 
 #define P 23    
 #define G 5     
-#define PRIVATE_KEY_SERVER 3 // Server's private key
-#define PUBLIC_KEY_CLIENT 7  // Client's public key
+#define PRIVATE_KEY_SERVER 2 // Server's private key
+#define PUBLIC_KEY_CLIENT 1 // Client's public key
 
 long long mod_exp(long long base, long long exp, long long modulus) {
     long long result = 1;
@@ -30,10 +30,7 @@ long long dh_decrypt(long long ciphertext) {
 }
 
 int main() {
-    long long ciphertext = 123456785;
-
-    // Decrypt the ciphertext using Diffie-Hellman decryption
+    long long ciphertext = 122;
     long long decrypted = dh_decrypt(ciphertext);
-
     return 0;
 }

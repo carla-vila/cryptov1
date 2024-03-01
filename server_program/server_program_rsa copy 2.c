@@ -5,17 +5,9 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h> 
-#include "./algorithms/ec_decryption.h"
 #include "./algorithms/rsa_decryption.h" // Include the RSA decryption header
 
 #define PORT 12345
-
-Point long_long_to_point(long long encoded_point) {
-    Point point;
-    point.x = encoded_point >> 32;
-    point.y = encoded_point & 0xFFFFFFFF;
-    return point;
-}
 
 int main() {
     int server_fd, new_socket;
@@ -60,8 +52,7 @@ int main() {
         if ((valread = read(new_socket , buffer, 1024)) > 0) {
             printf("Received: %s\n", buffer);
             long long ciphertext = atoll(buffer); 
-            Point A = long_long_to_point(ciphertext);
-            long long decrypted_data = ec_decrypt(A);            
+            long long decrypted_data = rsa_decrypt(ciphertext);            
             printf("Decrypted: %lld\n", decrypted_data);
         }
     }

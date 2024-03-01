@@ -5,9 +5,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h> 
-#include "./algorithms/ec_decryption.h"
-
-//gcc server_program_ec.c ./algorithms/ec_decryption.c -o main_program_ec
+#include "./algorithms/rsa_decryption.h" // Include the RSA decryption header
 
 #define PORT 12345
 
@@ -49,24 +47,14 @@ int main() {
         exit(EXIT_FAILURE);
     }
     
+    int valread;
     while(1) {
-        // Read data from the socket
-        int valread = read(new_socket, buffer, 1024);
-        if (valread > 0) {
-            buffer[valread] = '\0'; // Ensure the received data is null-terminated
+        if ((valread = read(new_socket , buffer, 1024)) > 0) {
             printf("Received: %s\n", buffer);
-            
-            // Decrypt the ciphertext using the elliptic curve decryption function
-            Point *ciphertext = (Point *)buffer;
-            long long decrypted_data = ec_decrypt(*ciphertext);
-
-            // Print the decrypted data
+            long long ciphertext = atoll(buffer); 
+            long long decrypted_data = ec_decrypt(ciphertext);            
             printf("Decrypted: %lld\n", decrypted_data);
-        } else {
-            // Handle errors or end of connection
-            break;
         }
     }
     return 0;
 }
-

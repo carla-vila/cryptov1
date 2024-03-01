@@ -24,7 +24,6 @@ long long mod_exp(long long base, long long exp, long long modulus) {
 }
 
 int main() {
-    srand(time(NULL)); // Seed for random number generation
 
     // Generate private keys for both client and server
     long long private_key_client = rand() % (P - 1) + 1;
