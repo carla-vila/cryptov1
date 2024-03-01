@@ -22,9 +22,9 @@ long long mod_expp(long long base, long long exp, long long modulus) {
 long long rsa_encrypt(long long plaintext) {
     return mod_expp(plaintext, SERVER_PUBLIC_KEY_E, SERVER_PUBLIC_KEY_N);
 }
-int main() {
+/* int main() {
     long long plaintext = 123; 
     long long ciphertext = rsa_encrypt(plaintext);
     printf("Encrypted ciphertext: %lld\n", ciphertext);
     return 0;
-}
+} */

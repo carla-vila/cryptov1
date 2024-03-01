@@ -72,9 +72,9 @@ long long ec_encrypt(long long plaintext) {
     return scalar_point;
 }
 
-int main() {
+/* int main() {
     long long plaintext = 10; // Example plaintext
     long long encrypted_point = ec_encrypt(plaintext);
     printf("Encrypted scalar point: %lld\n", encrypted_point);
     return 0;
-}
+} */

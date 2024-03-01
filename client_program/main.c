@@ -21,7 +21,7 @@ double collect_data() {
 }
 
 int main(int argc, char *argv[]) {
-    if (argc != 4) {
+    if (argc != 2) {
         printf("Usage: %s <algorithm>\n", argv[0]);
         return 1;
     }

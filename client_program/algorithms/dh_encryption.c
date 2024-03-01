@@ -34,8 +34,8 @@ long long dh_encrypt(long long plaintext) {
 }
 
 
-int main() {
+/* int main() {
     long long plaintext = 123;
     long long encrypted = dh_encrypt(plaintext);
     return 0;
-}
+} */
