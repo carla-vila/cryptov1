@@ -5,6 +5,8 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include "data_encryption.h"
+
 
 #define PORT 12345
 #define SERVER_IP "192.168.1.36"

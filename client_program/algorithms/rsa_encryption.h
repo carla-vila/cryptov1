@@ -1,3 +1,4 @@
+#include "../data_encryption.h"
 #ifndef RSA_H
 #define RSA_H
 
